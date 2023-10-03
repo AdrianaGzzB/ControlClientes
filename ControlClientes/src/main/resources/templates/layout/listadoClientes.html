@@ -28,9 +28,9 @@
                                     </thead>
                                     <tbody>
                                         <tr th:each="persona, contador : ${personas}">
-                                            <td th:text="${contador.count}"></td>
-                                            <td th:text="${persona.nombre} + ' ' + ${persona.apellido}"></td>
-                                            <td>$[[${#numbers.formatDecimal(persona.saldo,2, 'COMMA', 3, 'POINT')}]]</td>
+                                            <td>[[${contador.count}]]</td>
+                                            <td>[[${persona.nombre} + ' ' + ${persona.apellido}]]></td>
+                                            <td>$[[${#numbers.formatDecimal(persona.saldo,2, 'COMMA', 2, 'POINT')}]]</td>
                                             <td>
                                                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${persona.idPersona}"
                                                    class="btn btn-secondary">
